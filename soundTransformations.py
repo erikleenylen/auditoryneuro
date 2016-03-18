@@ -12,6 +12,9 @@ includes functions:
 	Maximum Acceleration of Peak Pressure.  The model fitting routines
 	are provided, with a fully loaded 
 
+	model fitting can be modified for generalized modeling problems
+	using least sqaures optimization
+
 erik lee nylen
 
 '''

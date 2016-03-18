@@ -2,4 +2,6 @@
 Tools for the Auditory Neuroscientist
 
 ## soundTransformations.py
-Includes tools for converting units as well as model fitting routines for the Maximum Acceleration of Peak Pressure model described by Peter Heil in 1998.
+Includes tools for converting units as well as model fitting routines for the Maximum Acceleration of Peak Pressure model described by Peter Heil in 1997.
+
+See reference: http://jn.physiology.org/content/78/5/2438

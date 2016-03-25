@@ -1,6 +1,13 @@
 '''
 tools for the auditory neuroscientist
 
+author: erik lee nylen
+last update: 3/25/16
+
+quick use:
+from command line, go to folder containing soundTransformation.py and type:
+python soundTransformations.py
+
 includes functions:
 	dBtoPa: a function for converting decibel list to Pascals
 	PatodB: a function for converting from Pascals to decibels
@@ -15,7 +22,7 @@ includes functions:
 	model fitting can be modified for generalized modeling problems
 	using least sqaures optimization
 
-erik lee nylen
+
 
 '''
 import numpy as np
@@ -76,3 +83,6 @@ def rsquared(x,y):
     '''easy way to just get the rsquared value'''
     slope,intercept,r_value,p_value,std_err=stats.linregress(x,y)
     return r_value    
+
+if __name__ == "__main__":
+    exampleMappFit()

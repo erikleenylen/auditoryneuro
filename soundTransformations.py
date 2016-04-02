@@ -38,6 +38,10 @@ def PatodB(vectin):
     '''convert vector (list) of Pascals to decibels'''
     return [20.*np.log(_*(10**5)/2) for _ in vectin]
 
+def rateDetector(stimulusIn):
+    stimulusIn = [0]+stimulusIn
+    return np.diff(stimulusIn)
+
 def residualsMapp(p,y,x,errors=[]):
     '''calculates the residual error of the maximum acceleration of peak pressure'''
     Lmin,S,x0,a = p

@@ -39,6 +39,7 @@ def PatodB(vectin):
     return [20.*np.log(_*(10**5)/2) for _ in vectin]
 
 def rateDetector(stimulusIn):
+    ''' performs diff calculation but zero pads the front'''
     stimulusIn = [0]+stimulusIn
     return np.diff(stimulusIn)
 

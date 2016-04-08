@@ -31,15 +31,15 @@ from scipy.optimize import leastsq
 from scipy import stats
 
 def dBtoPa(vectin):
-    '''convert vector of decibels values to Pascals'''
+    '''convert vector (list or array) of decibels values to Pascals'''
     return [np.exp(float(_)/float(20))*2/(10**5) for _ in vectin]	
 
 def PatodB(vectin):	
-    '''convert vector (list) of Pascals to decibels'''
+    '''convert vector (list or array) of Pascals to decibels'''
     return [20.*np.log(_*(10**5)/2) for _ in vectin]
 
 def rateDetector(stimulusIn):
-    ''' performs diff calculation but zero pads the front'''
+    ''' calculates derivative (performs diff calculation) but zero pads the front'''
     stimulusIn = [0]+stimulusIn
     return np.diff(stimulusIn)
 

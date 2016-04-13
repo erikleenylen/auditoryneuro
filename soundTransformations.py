@@ -57,7 +57,8 @@ def pevalMapp(x,p):
     return p[0] + p[3]/(np.log(x-p[2])+p[1])**4
 
 def mappFit(x,p0,y_meas,errs=[]):
-    '''least squares fit of the spike latencies'''
+    '''least squares fit of the spike latencies, dependencies include:
+        residualsMapp()'''
     plsq = leastsq(residualsMapp,p0,args=(y_meas,x,errs))   
     return pevalMapp(x, plsq[0])
 

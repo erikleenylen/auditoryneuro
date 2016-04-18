@@ -68,6 +68,8 @@ def exampleMappFit(x=np.arange(2,6,.1), S = .5, Lmin=10,x0=0.5,a=13.3):
 
     Example usage:
     soundTransformations.exampleMappFit()
+
+    program will print and save figure
     '''
     fig = plt.figure()
     y_true = Lmin + a/(np.log(x-x0)+S)**4

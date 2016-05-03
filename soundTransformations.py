@@ -63,22 +63,27 @@ def mappFit(x,p0,y_meas,errs=[]):
     return pevalMapp(x, plsq[0])
 
 def exampleMappFit(x=np.arange(2,6,.1), S = .5, Lmin=10,x0=0.5,a=13.3):
-    '''function provides an example figure of simulated neural timing data
+    '''function provides an example figure of simulated neural timing data,
+    adds some noise to the model,
     and fits these data with the model as described by Heil 
 
     Example usage:
     soundTransformations.exampleMappFit()
 
-    program will print and save figure
+    Equation used: p[0] + p[3]/(np.log(x-p[2])+p[1])**4
+    where p = [Lmin, S, x0, a]
+
+    usable p = [10,.5,.5,13.3]
+
+
+    program will print and save figure 
     '''
     fig = plt.figure()
     y_true = Lmin + a/(np.log(x-x0)+S)**4
-    simErrors=[max(.01,abs(_*_ind/50)) for _ind,_ in enumerate(10*np.random.randn(len(x)))]
     y_meas = y_true + np.random.randn(len(x))
     p0 = [20,1,-3,13.3] # lmin, S, dx, Amp
-    plsq = leastsq(residualsMapp,p0,args=(y_meas,x,simErrors))
+    plsq = leastsq(residualsMapp,p0,args=(y_meas,x))
     y_predict = pevalMapp(x, plsq[0])
-    print 'plsq', plsq[0]
     plt.plot(x, y_predict,'o',c='k')
     plt.plot(x,y_true,c='k')
     plt.plot(x,y_meas,'x',c='k')
@@ -92,5 +97,6 @@ def rsquared(x,y):
     slope,intercept,r_value,p_value,std_err=stats.linregress(x,y)
     return r_value    
 
-if __name__ == "__main__":
-    exampleMappFit()
+# uncomment the below code if you are running soundTransformations.py from the command line
+#if __name__ == "__main__":
+#    exampleMappFit()
